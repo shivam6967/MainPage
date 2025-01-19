@@ -1,9 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 
+interface FormData {
+  name: string;
+  dob: string;
+  timeOfBirth: string;
+  gender: string;
+  state: string;
+  city: string;
+  includeGemstones: boolean;
+  includePooja: boolean;
+  includeMeditation: boolean;
+}
+
 const HoroscopeForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     dob: "",
     timeOfBirth: "",
@@ -16,7 +28,7 @@ const HoroscopeForm = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
@@ -27,7 +39,7 @@ const HoroscopeForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     alert("Your Horoscope and Kundali are being generated!");
