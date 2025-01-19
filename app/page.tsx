@@ -1,4 +1,4 @@
-import Encryption from "@/components/main/Encryption";
+// import Encryption from "@/components/main/Encryption";
 import Form from "@/components/main/Form";
 import Hero from "@/components/main/Hero";
 import Skills from "@/components/main/Skills";
@@ -12,7 +12,6 @@ export default function Home() {
         <Hero />
         {/* Some Random Animations */}
         <Form />
-        <Encryption />
       </div>
     </main>
   );
