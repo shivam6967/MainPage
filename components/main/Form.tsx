@@ -16,7 +16,9 @@ const HoroscopeForm = () => {
     includeMeditation: false,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: {
+    target: { name: any; value: any; type: any; checked: any };
+  }) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -24,7 +26,7 @@ const HoroscopeForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     alert("Your Horoscope and Kundali are being generated!");
@@ -133,7 +135,7 @@ const HoroscopeForm = () => {
               }}
               name="gender"
               value={formData.gender}
-              onChange={handleChange}
+              // onChange={handleChange}
             >
               <option value="none">Select Gender</option>
               <option value="male">Male</option>
